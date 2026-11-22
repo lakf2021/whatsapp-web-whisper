@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>WhatsApp Whisper</title>
+<style>
+  body { font: 14px system-ui; padding: 16px; min-width: 320px; }
+  label { display: block; margin: 12px 0 4px; font-weight: 600; }
+  select { width: 100%; padding: 4px; }
+  small { color: #666; }
+</style>
+<label for="model">Modelo</label>
+<select id="model">
+  <option value="Xenova/whisper-tiny">tiny (~40 MB) — rápido, menos preciso</option>
+  <option value="Xenova/whisper-base">base (~75 MB) — equilíbrio (padrão)</option>
+  <option value="Xenova/whisper-small">small (~250 MB) — mais preciso</option>
+  <option value="Xenova/whisper-medium">medium (~800 MB) — bem preciso, lento sem GPU</option>
+  <option value="onnx-community/whisper-large-v3-turbo">large-v3-turbo (~1,1–1,6 GB) — o melhor; ideal com GPU</option>
+</select>
+<label for="device">Processamento</label>
+<select id="device">
+  <option value="auto">Automático (GPU via WebGPU, se disponível)</option>
+  <option value="wasm">Só CPU (WASM)</option>
+</select>
+<label for="language">Idioma</label>
+<select id="language">
+  <option value="portuguese">Português</option>
+  <option value="english">Inglês</option>
+  <option value="spanish">Espanhol</option>
+  <option value="auto">Detectar automaticamente</option>
+</select>
+<p><small>O modelo é baixado uma vez do Hugging Face e fica em cache. O áudio nunca sai do seu computador.</small></p>
+<script src="options.js"></script>
